@@ -18,21 +18,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-    	httpSecurity
+//    	httpSecurity
     		//To make sure we have access to console
-	        .authorizeRequests().antMatchers("/h2-console/**").permitAll()
-	        .and()
-	        .authorizeRequests().antMatchers("/console/**").permitAll()
-	        .and()
-	        //don't ever put the login page   VVV HERE VVV   or you will lock yourself out of the login
-	        .authorizeRequests().antMatchers("/", "/user/**").authenticated().anyRequest().permitAll()
-	        .and()
-	        .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
-	        .and()
-	        .logout().logoutSuccessUrl("/login?logout")
-	        .and()
-	        .csrf().disable()
-	        .headers().frameOptions().disable();
+//	        .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+//	        .and()
+//	        .authorizeRequests().antMatchers("/console/**").permitAll()
+//	        .and()
+//	        //don't ever put the login page   VVV HERE VVV   or you will lock yourself out of the login
+//	        .authorizeRequests().antMatchers("/", "/user/**").authenticated().anyRequest().permitAll()
+//	        .and()
+//	        .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
+//	        .and()
+//	        .logout().logoutSuccessUrl("/login?logout")
+//	        .and()
+//	        .csrf().disable()
+//	        .headers().frameOptions().disable();
    	
     }
     	
@@ -45,12 +45,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     	
     	@Autowired
         public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.jdbcAuthentication()
-                    .dataSource(dataSource)
-                    .rolePrefix("")
-                    .passwordEncoder(new PlaintextPasswordEncoder())
-                    .usersByUsernameQuery("select email as username, password, active as enabled from java301.users where email = ?")
-                    .authoritiesByUsernameQuery("select u.email as username, ur.role as authority from java301.users u inner join java301.user_roles ur on (u.id = ur.user_id) where u.email = ?");
+//            auth.jdbcAuthentication()
+//                    .dataSource(dataSource)
+//                    .rolePrefix("")
+//                    .passwordEncoder(new PlaintextPasswordEncoder())
+//                    .usersByUsernameQuery("select email as username, password, active as enabled from java301.users where email = ?")
+//                    .authoritiesByUsernameQuery("select u.email as username, ur.role as authority from java301.users u inner join java301.user_roles ur on (u.id = ur.user_id) where u.email = ?");
         }
     	
     	
