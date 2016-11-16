@@ -14,7 +14,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long productId;
+	private long id;
 	
 	@Size(max = 100)
 	private String productName;
@@ -34,7 +34,7 @@ public class Product {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (productId ^ (productId >>> 32));
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
 
@@ -47,13 +47,13 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		if (productId != other.productId)
+		if (id != other.id)
 			return false;
 		return true;
 	}
 
-	public long getProductId() {
-		return productId;
+	public long getId() {
+		return id;
 	}
 
 	public String getProductName() {
@@ -72,10 +72,6 @@ public class Product {
 		return productYear;
 	}
 
-	public void setProductId(long productId) {
-		this.productId = productId;
-	}
-
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
@@ -91,12 +87,6 @@ public class Product {
 	public void setProductYear(int productYear) {
 		this.productYear = productYear;
 	}
-
-
-	
-	
-	
-
 	
 	
 }

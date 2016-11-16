@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Customers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+
+		<h1>Customers</h1>
+		<a href="/" th:href="@{|/product/create|}" class="btn btn-default">Order</a>
+
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Metal</th>
+					<th>Price</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.description}"></td>
+					<td th:text="${product.metal}"></td>
+					<td th:text="${product.price}"></td>
+					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a></td>
+					<td><a href="/" th:href="@{|/product/${product.id}/delete|}">Delete</a></td>
+
+				</tr>
+			</tbody>
+
+
+		</table>
+	</div>
+
+</body>
+</html>

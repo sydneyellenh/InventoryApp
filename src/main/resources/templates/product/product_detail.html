@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/basic">
+<head>
+   <title>Product</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+<h2>Product</h2>
+
+  	<div th:if="${product}">
+
+		  	<ul th:object="${product}">
+		  	<li th:text="*{productName}"></li>
+		  	<li th:text="*{productPrice}"></li>
+		  	<li th:text="*{productCondition}"></li>
+		  	<li th:text="*{productYear}"></li>
+		  	</ul>
+		  	
+		  	<a href="/" th:href="@{|/product/${product.Id}/edit|}" type="button" class="btn btn-info">Edit</a>
+
+	  </div>
+	 <div th:unless="${product}">
+	 	<h3>Product not found</h3>
+	 </div> 
+	 <a href="/product">Back</a>
+</body>
+</html>
